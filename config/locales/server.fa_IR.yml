@@ -828,7 +828,7 @@ fa_IR:
       This document is CC-BY-SA. It was last updated May 31, 2013.
   static:
     search_help: |
-      <h2>Tips</h2>
+      <h2>راهنمایی</h2>
       <p>
       <ul>
         <li>Title matches are prioritized, so when in doubt, search for titles</li>
