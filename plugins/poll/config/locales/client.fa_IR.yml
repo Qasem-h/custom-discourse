@@ -1,0 +1,10 @@
+fa_IR:
+  js:
+    poll:
+      voteCount:
+        other: "%{count} آرا"
+      results:
+        show: نمایش نتایج
+        hide: پنهان کرد نتایج
+      close_poll: "بستن نظرسنجی"
+      open_poll: "باز کردن نظرسنجی"
