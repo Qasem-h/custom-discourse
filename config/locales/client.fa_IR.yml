@@ -672,6 +672,7 @@ fa_IR:
       remote_tip: "لینک به تصویر"
       remote_tip_with_attachments: "لطفا لینک تصویر یا فایل ({{authorized_extensions}})"
       local_tip: "بفشارید تا تصویری را از روی دستگاه خود برگزینید"
+      hint: "(برای آپلود می توانید فایل را کیشده و در ویرایشگر رها کنید)"
       hint_for_supported_browsers: "(شما همچنین می توانید با کشیدن و رها کردن یا چسباندن تصاویر در ویرایشگر آن ها را بار گذاری نمایید)"
       uploading: "در حال بروز رسانی "
       image_link: "به لینک تصویر خود اشاره کنید"
@@ -1129,6 +1130,7 @@ fa_IR:
       yes_delete_spammer: "بله، پاک‌کردن هرزنگار"
       ip_address_missing: "(N/A)"
       hidden_email_address: "(مخفی)"
+      submit_tooltip: "ایجاد پرچم خصوصی"
       cant: "متأسفیم، در این زمان نمی‌توانید روی این دیدگاه بگذارید."
       formatted_name:
         off_topic: "آن موضوع قدیمی است"
@@ -1362,12 +1364,14 @@ fa_IR:
         automatic: "خودکار"
       api:
         generate_master: "ایجاد کلید اصلی API"
+        none: "هم اکنون هیچ کلید API فعالی وجود ندارد"
         user: "کاربر"
-        title: "API"
+        title: " رابط برنامه های کاربردى"
         key: "کلید API"
         generate: "تولید کردن"
         regenerate: "احیاء کردن"
         revoke: "لغو کردن"
+        confirm_regen: "آیا می خواهید API موجود را با یک API جدید جایگزین کنید؟"
         info_html: "موضوعات تازه پس از آخرین بازدید شما"
         all_users: "همه کاربران"
       plugins:
