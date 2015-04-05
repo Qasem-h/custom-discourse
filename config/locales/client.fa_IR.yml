@@ -29,17 +29,17 @@ fa_IR:
         x_seconds:
           other: "%{count} ثانیه"
         less_than_x_minutes:
-          other: "< %{count} دقیقه"
+          other: "< %{count}دقیقه"
         x_minutes:
-          other: "%{count} دقیقه"
+          other: "%{count}دقیقه"
         about_x_hours:
-          other: "%{count} ساعت"
+          other: "%{count}ساعت"
         x_days:
-          other: "%{count} روز"
+          other: "%{count}روز"
         about_x_years:
-          other: "%{count} سال"
+          other: "%{count}سال"
         over_x_years:
-          other: "> %{count} سال"
+          other: "> %{count}سال"
         almost_x_years:
           other: "%{count} سال"
         date_month: "MMM D"
@@ -1685,6 +1685,7 @@ fa_IR:
         suspend_reason: "دلیل"
         suspended_by: "تعلیق شده توسط"
         delete_all_posts: "پاک کردن همهٔ نوشته‌ها"
+        delete_all_posts_confirm: "شما می خواهید تعداد %{posts}  نوشته و تعداد %{topics} موضوع خذف کنید،آیا مطمئن هستید؟"
         suspend: "تعلیق"
         unsuspend: "خارج کردن از تعلیق"
         suspended: "تعلیق شد ؟"
@@ -1700,6 +1701,7 @@ fa_IR:
         impersonate: 'جعل هویت کردن'
         ip_lookup: "مشاهده ای پی"
         log_out: "خروج"
+        logged_out: "کاربر از کل دستگاه ها خارج شد."
         revoke_admin: 'لغو مدیریت'
         grant_admin: 'اعطای مدیریت'
         revoke_moderation: 'پس گرفتن مدیریت'
@@ -1721,12 +1723,21 @@ fa_IR:
         flags_given_received_count: 'پرچم های  ارسالی / دریافتی'
         approve: 'تصویب'
         approved_by: "تصویب شده توسط"
+        approve_success: "کاربر تایید و ایمیل با دستورالعمل فعال سازی ارسال شد."
+        approve_bulk_success: "موفق!همه کاربران انتخاب شده تایید و اطلاعیه ارسال شد."
         anonymize: "کاربر ناشناس"
         anonymize_yes: "بله ، این یک حساب کاربری ناشناس است."
+        anonymize_failed: "یک مشکل با حساب کاربری ناشناس وجود دارد"
         delete: "پاک کردن کاربر"
         delete_forbidden_because_staff: "مدیران کل و مدیران را نمی‌توانید پاک کنید"
+        delete_posts_forbidden_because_staff: "نمی توان همه نوشته های مدیران کل و مدیران را خذف کرد"
         delete_forbidden:
           other: "نمی‌توانید کاربرانی را که موضوع دارند پاک کنید. پیش از تلاش برای پاک کردن کاربر، نخست همهٔ‌ موضوعاتش را پاک کنید. (موضوعات که بیش از %{count}  روز پیش فرستاده شده باشند، نمی‌توانند پاک شوند.)"
+        cant_delete_all_posts:
+          other: "نمی توان همه نوشته ها را خذف کرد. برخی نوشته ها قدیمی تر از %{count} هستند.(در delete_user_max_post_age setting.)"
+        cant_delete_all_too_many_posts:
+          other: "نمی توان همه نوشته ها را خذف کرد. چون تعداد کاربران از %{count} تعداد نوشته ها بیشتر است.(delete_all_posts_max)"
+        delete_confirm: "آیا مطمئن هستید که می خواهید این کاربر را حذف کنید ؟ این کار دائمی است!"
         delete_and_block: "حذف و <b>مسدود</b>کن این آی پی و آدرس ایمل را"
         delete_dont_block: "فقط حذف"
         deleted: "کاربر پاک شد."
@@ -1744,6 +1755,7 @@ fa_IR:
         block_explanation: "کاربر قفل شده نمی‌تواند نوشته ای بگذارد یا موضوعی آغاز کند."
         trust_level_change_failed: "در تغییر سطح اعتماد کاربر مشکلی پیش آمد."
         grant_admin_failed: "در اعطای اختیارات مدیریت مشکلی پیش آمد."
+        grant_moderation_failed: "یک مشکل در  اعطای امتیازات مدیریت وجود دارد."
         suspend_modal_title: "کاربران تعلیق شده"
         trust_level_2_users: "کاربران سطح اعتماد 2"
         trust_level_3_requirements: "مقررات سطح اعتماد 3"
@@ -1870,7 +1882,9 @@ fa_IR:
         no_user_badges: "%{name} هیچ مدالی دریافت نکرده است."
         no_badges: مدالی برای اعطا کردن وجود ندارد.
         none_selected: "برای شروع یک مدال رو انتخاب کنید"
+        allow_title: اجازه برای استفاده مدال در عنوان
         multiple_grant: نمی توان چندین با اهداء کرد
+        listable: نشان دادن مدال در صفحه مدال های عمومی
         enabled: به‌کارگیری مدال
         icon: آیکن
         image: تصویر
