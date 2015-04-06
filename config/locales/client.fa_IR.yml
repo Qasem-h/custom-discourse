@@ -802,6 +802,7 @@ fa_IR:
           '3_2': 'از آنجا که این موضوع را تماشا می‌کنید، از رویدادهای آن آگاه خواهید شد.'
           '3_1': 'از آنجا که این موضوع را ساخته‌اید، از رویدادهای آن آگاه خواهید شد.'
           '3': 'از آنجا که این موضوع را تماشا می‌کنید، از رویدادهای آن آگاه خواهید شد.'
+          '2_8': 'شما آگاه سازی دریافت خواهید کرد چون شما این دسته بندی را پی گیری می کنید.'
           '2_4': 'از آنجا که یه این موضوع پاسخی فرستادید، از رویدادهای آن آگاه خواهید شد.'
           '2_2': 'از آنجا که این موضوع را دنبال می‌کنید، از رویدادهای آن آگاه خواهید شد.'
           '2': 'شما اطلاعیه ای دریافت خواهید کرد چون  <a href="/users/{{username}}/preferences">این موضوع را مطالعه نماید</a>.'
@@ -1128,6 +1129,7 @@ fa_IR:
       position: "موقعیت"
       default_position: "موقعیت پیش فرض"
       position_disabled: "Categories will be displayed in order of activity. To control the order of categories in lists, "
+      position_disabled_click: 'در تنظیمات "مکان دسته بندی ثابت"  فعال را کنید.'
       parent: "دسته مادر"
       notifications:
         watching:
@@ -1239,6 +1241,7 @@ fa_IR:
           zero: "جدید"
           one: "جدید (1)"
           other: "جدید ({{count}})"
+        help: "موضوعاتی که در چند روز گذشته ایجاد شده"
       posted:
         title: "نوشته‌های من"
         help: "در این موضوع شما نوشته داردید"
@@ -1303,8 +1306,10 @@ fa_IR:
         uploads: "بارگذاری ها"
         backups: "پشتیبان ها"
         traffic_short: "ترافیک"
+        traffic: "درخواست های نرم افزار وب"
         page_views: "درخواست های API"
         page_views_short: "درخواست های API"
+        show_traffic_report: "نمایش دقیق گزارش ترافیک"
         reports:
           today: "امروز"
           yesterday: "دیروز"
@@ -1320,6 +1325,7 @@ fa_IR:
           start_date: "تاریخ شروع"
           end_date: "تاریخ پایان"
       commits:
+        latest_changes: "آخرین تغییرات: لطفا دوباره به روز رسانی کنید!"
         by: "توسط"
       flags:
         title: "نشانه گذاری ها"
@@ -1338,7 +1344,9 @@ fa_IR:
         delete: "حذف"
         delete_title: "حذف پرچم نوشته و اشاره به."
         delete_post_defer_flag: "حذف نوشته و  رها کردن پرچم"
+        delete_post_defer_flag_title: "حذف نوشته; اگر اولین نوشته است،موضوع را حذف نمایید."
         delete_post_agree_flag: "حذف نوشته و موافقت با پرچم"
+        delete_post_agree_flag_title: "حذف نوشته; اگر اولین نوشته است،موضوع را حذف نمایید."
         delete_flag_modal_title: "حذف و..."
         delete_spammer: "حذف اسپمر"
         disagree_flag_unhide_post: "مخالفم (با رویت نوشته)"
@@ -1380,6 +1388,8 @@ fa_IR:
         refresh: "تازه کردن"
         new: "جدید"
         selector_placeholder: "نام کاربری را وارد نمایید ."
+        name_placeholder: "نام گروه، بدون فاصله، همان قاعده نام کاربری"
+        about: "ویرایش عضویت در گروه شما و نام ها اینجا"
         group_members: "اعضای گروه"
         delete: "حذف"
         delete_confirm: "حذف این گروه؟"
@@ -1399,6 +1409,7 @@ fa_IR:
         regenerate: "احیاء کردن"
         revoke: "لغو کردن"
         confirm_regen: "آیا می خواهید API موجود را با یک API جدید جایگزین کنید؟"
+        confirm_revoke: "آیا مطمئن هستید که می خواهید کلید را برگردانید؟"
         info_html: "موضوعات تازه پس از آخرین بازدید شما"
         all_users: "همه کاربران"
       plugins:
@@ -1430,7 +1441,10 @@ fa_IR:
           size: "اندازه"
         upload:
           label: "بار گذاری"
+          title: "آپلود یک نسخه پشتیبان برای این نمونه"
           uploading: "در حال بار گذاری ..."
+          success: "'{{filename}}' با موفقیت آپلود شد."
+          error: "هنگام آپلود خطایی رخ می دهد '{{filename}}': {{message}}"
         operations:
           is_running: "عملیاتی در جریان است..."
           cancel:
@@ -1457,10 +1471,14 @@ fa_IR:
             label: "عقبگرد"
       export_csv:
         user_archive_confirm: "آیا مطمئنید که می‌خواهید نوشته‌هایتان را دانلود کنید؟"
+        failed: "برون ریزی شکست خورد، لطفا لوگ گزارشات را مشاهده فرمایید"
         button_text: "خروجی گرفتن"
         button_title:
           user: "برون ریزی لیست تمام کاربران با قالب CSV ."
           staff_action: "برون ریزی تمام کار های مدیران با فرمت CSV ."
+          screened_email: "برون ریزی کامل لیست ایمیل به نمایش در آمده در فرمت CSV."
+          screened_ip: "برون ریزی کامل لیست ای پی به نمایش در آمده در فرمت CSV."
+          screened_url: "برون ریزی کامل لیست URL به نمایش در آمده در فرمت CSV."
       invite:
         button_text: "ارسال دعوتنامه"
         button_title: "ارسال دعوتنامه"
@@ -1475,6 +1493,7 @@ fa_IR:
           text: "</head>"
         body_tag:
           text: "</body>"
+        override_default: "حاوی شیوه نامه استاندارد نیست"
         enabled: "فعال شد؟"
         preview: "پیش‌نمایش"
         undo_preview: "حذف پیش نمایش"
@@ -1621,6 +1640,7 @@ fa_IR:
         screened_ips:
           title: "نمایش آپی پی ها"
           delete_confirm: "آیا از حذف قانون وضع شده برای {ip_address}% اطمینان دارید؟"
+          rolled_up_no_subnet: "هیچ چیز برای ذخیره کردن وجود ندارد."
           actions:
             block: "بستن"
             do_nothing: "اجازه دادن"
@@ -1673,6 +1693,8 @@ fa_IR:
           suspect: 'کاربران مشکوک'
         reject_successful:
           other: "کاربران %{count}  با موفقیت رد شدند"
+        reject_failures:
+          other: "رد کاربران %{count} ناموفق بود"
         not_verified: "تایید نشده"
         check_email:
           text: "نشان دادن"
@@ -1725,6 +1747,7 @@ fa_IR:
         approved_by: "تصویب شده توسط"
         approve_success: "کاربر تایید و ایمیل با دستورالعمل فعال سازی ارسال شد."
         approve_bulk_success: "موفق!همه کاربران انتخاب شده تایید و اطلاعیه ارسال شد."
+        time_read: "زمان خوانده شده"
         anonymize: "کاربر ناشناس"
         anonymize_yes: "بله ، این یک حساب کاربری ناشناس است."
         anonymize_failed: "یک مشکل با حساب کاربری ناشناس وجود دارد"
@@ -1846,6 +1869,7 @@ fa_IR:
           onebox: "یک جعبه"
           seo: 'SEO'
           spam: 'هرزنامه'
+          rate_limits: 'میزان محدودیت'
           developer: 'توسعه دهنده'
           embedding: "توکاری"
           legal: "حقوقی"
