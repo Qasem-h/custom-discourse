@@ -1,5 +1,6 @@
 // Utilities
 
+// This is used to flip the .fa-caret-right icon
 @mixin rotate( $degrees ) {
   -webkit-transform: rotate(#{$degrees}deg);
   -moz-transform: rotate(#{$degrees}deg);
@@ -442,7 +443,7 @@
       left: 12px;
       bottom: 12px;
     }
-  }
+  } // End of #user-card
 
   // .topic-avatar
   .topic-avatar {
@@ -482,8 +483,7 @@
       border-right: 5px solid darken(scale-color-diff(), 12%);
     }
 
-  }
-  // End of .embedded-posts
+  } // End of .embedded-posts
 
   // #topic-progress
   #topic-progress-wrapper {
@@ -491,7 +491,6 @@
   }
 
   #topic-progress-expanded {
-
     right: 345px;
 
     .jump-form {
@@ -527,9 +526,9 @@
       right: auto;
       left: 145px;
     }
-  }
+  } // End of #topic-progress
 
-  // logo
+  // Set small logo margin -- this should be moved
   .logo-small {
     margin: 0 0 0 8px;
   }
@@ -557,7 +556,7 @@
     .control-row {
       margin: 0 5px 0 0;
     }
-  }
+  } // End of #reply-control
 
   // PageDown editor styles
   .wmd-spacer {
@@ -573,21 +572,14 @@
     float: right;
   }
 
-  // .user-navigation
-  .user-navigation {
-    float: right;
-
-    .avatar {
-      float: right;
-    }
-  }
-
   // styles that apply to the user page
 
   .user-preferences {
+
     .instructions {
       margin-right: 160px;
     }
+
     .avatar {
       margin-right: 3px;
     }
@@ -597,6 +589,10 @@
     margin-right: 0;
     margin-left: 1.8018%;
     float: right;
+
+    .avatar {
+      float: right;
+    }
   }
 
   .user-main {
@@ -605,10 +601,12 @@
       th.seen {
         text-align: left;
       }
+
       td {
         img {
           margin-left: 10px;
         }
+
         span.last-seen-at {
           float: left;
         }
@@ -621,13 +619,11 @@
     }
 
     .user-content {
-
       .btn.right {
         float: left
       }
 
       table {
-
         th {
           text-align: right;
         }
@@ -635,7 +631,6 @@
     }
 
     .about {
-
       .secondary {
         dl dd {
           margin: 0 0 0 10px;
@@ -680,9 +675,7 @@
     }
 
     .about.collapsed-info {
-
       .details {
-
         .primary {
           text-align: right;
 
@@ -715,7 +708,6 @@
         float: left;
       }
       .notification {
-
         p {
           margin-right: 10px;
         }
@@ -741,26 +733,18 @@
         float: right;
         text-align: left;
       }
-
-      .controls {
-        label {
-          //          text-align: right;
-          //        float: auto;
-        }
-      }
     }
-  }
+  } // End of user page styles
 
   // Buttons
 
+  // Flip the caret
   .fa-caret-right {
     @include rotate(180);
     margin-right: 5px;
   }
 
   // Navigation menus
-
-  // Continued from this file
   .nav-pills {
     > li {
       float: right;
@@ -779,6 +763,7 @@
       padding: 13px 30px 13px 13px;
     }
 
+    // Creates a triangle that is reversed from the lrt one.
     .active > a::before {
       right: 90%;
       top: 33%;
@@ -792,10 +777,9 @@
     .active > a::after {
       border: none;
     }
-
   }
 
-  // header.scss
+  // header.scss -- rtl styles to override header.scss
   button.login-button,
   button.sign-up-button {
     float: right;
@@ -834,7 +818,7 @@
     text-align: left;
   }
 
-  // topic-list.scss
+  // topic-list.scss -- rtl styles to override topic-list.scss
   #topic-title {
     padding-right: 10px;
   }
@@ -842,8 +826,7 @@
     padding-left: 10px;
   }
 
-  // topic.scss
-
+  // topic.scss -- rtl styles to override topic.scss
   #topic-title {
     .title-wrapper {
       float: right;
@@ -859,7 +842,7 @@
     }
   }
 
-  // base/topic-admin-menu.scss
+  // base/topic-admin-menu.scss -- rtl styles to override admin-menu.scss
   .show-topic-admin {
     top: 120px;
     left: 10px;
@@ -870,7 +853,7 @@
     left: 0 !important;
   }
 
-  // desktop/topic-post.scss
+  // desktop/topic-post.scss -- rtl styles to override topic-post.scss
   #selected-posts {
     padding-right: 20px;
     margin-right: 330px;
@@ -895,7 +878,448 @@
     }
   }
 
-  // common/admin/admin_base.scss
+  // common/admin/admin_base.scss -- rtl styles to override admin_base.scss
+  .admin-contents table {
+    tr {
+      text-align: right;
+    }
+  }
+
+  .content-list li a span.count {
+    float: left;
+    margin-left: 10px;
+  }
+
+  .admin-content {
+    .view-options {
+      float: left;
+    }
+
+    table.report {
+      .bar-container {
+        float: right;
+        margin-left: 15px;
+
+        .bar {
+          text-align: left;
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+
+  .ip-lookup {
+    .location-box {
+      left: 0;
+      padding: 12px 12px 5px 12px;
+    }
+  }
+
+  .admin-controls {
+    padding: 10px 0 3px 10px;
+
+    .controls {
+      margin-right: 10px;
+    }
+
+    button {
+      margin-left: 5px;
+    }
+
+    input[type=text] {
+      float: right;
+    }
+
+    .result-message {
+      padding-right: 10px;
+      padding-left: 0;
+    }
+
+    .search {
+      float: left;
+      margin-right: 10px;
+    }
+
+    .toggle {
+      float: left;
+    }
+
+    label {
+      margin-left: 5px;
+      margin-right: 0;
+    }
+  }
+
+  .admin-nav {
+    .nav-stacked {
+      border-left: none;
+    }
+  }
+
+  .admin-detail {
+    margin-right: 0;
+    border-right: solid 1px scale-color-diff();
+    padding: 30px 30px 30px 0;
+  }
+
+  .settings {
+    .setting {
+      .setting-label {
+        float: right;
+        margin-left: 12px;
+      }
+
+      .setting-value {
+        float: right;
+      }
+
+      .setting-controls {
+        float: right;
+      }
+
+      .input-setting-list {
+        li.sortable-placeholder {
+          padding: 3px 18px 3px 5px;
+          margin: 3px 5px 3px 0;
+        }
+      }
+    }
+  }
+
+  .user-controls {
+    text-align: left;
+  }
+
+  .display-row {
+    .field {
+      float: right;
+      margin-right: 12px;
+    }
+
+    .value {
+      float: right;
+      margin-right: 12px;
+    }
+
+    .long-value {
+      float: right;
+      margin-right: 12px;
+
+      button {
+        margin-right: 10px;
+        margin-left: 0;
+      }
+    }
+
+    .controls {
+      float: right;
+      margin-right: 12px;
+
+      .btn {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  // Badges area
+  .badges {
+    .content-list ul {
+      .list-badge {
+        float: left;
+      }
+    }
 
 
-}
+    .form-horizontal {
+      .delete-link {
+        margin-right: 15px;
+        margin-left: 0;
+      }
+    }
+
+    .buttons {
+      float: right;
+      .saving {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .badge-query-preview {
+    .grant-count, .sample, .error-header {
+      margin-right: 10px;
+    }
+  }
+
+  // Groups area
+  .groups {
+    .ac-wrap {
+      .item {
+        margin-left: 0 !important;
+      }
+    }
+  }
+
+  // Customise area
+  .customize {
+    .nav.nav-pills {
+      margin-right: 10px;
+      margin-left: 0;
+    }
+
+    .content-list, .current-style {
+      float: right;
+    }
+
+    .current-style {
+      padding-right: 10px;
+
+      .toggle-mobile {
+        left: 35px;
+      }
+
+      .toggle-maximize {
+        position: absolute;
+        left: -5px;
+      }
+
+      .delete-link {
+        margin-right: 15px;
+      }
+
+      .preview-link {
+        margin-right: 15px;
+      }
+
+      .status-actions {
+        float: left;
+        span {
+          margin-left: 10px;
+          margin-right: 0;
+        }
+      }
+
+      .buttons {
+        float: right;
+        .saving {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .color-scheme {
+      .controls {
+        span, button, a {
+          margin-left: 10px;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .admin-flags {
+    th {
+      text-align: right;
+    }
+
+    .flaggers {
+      padding: 8px 5px 0 0;
+    }
+
+    .action {
+      text-align: left;
+    }
+  }
+
+  /* Dashboard */
+
+  .dashboard-left {
+    float: right;
+  }
+  .dashboard-right {
+    float: left;
+  }
+
+  table.api-keys {
+    th {
+      text-align: right;
+    }
+  }
+
+  .dashboard-stats {
+    margin-left: 40px;
+
+    table {
+      th.title {
+        text-align: right;
+      }
+    }
+
+    &.detected-problems {
+
+      .look-here {
+        float: right;
+      }
+
+      .problem-messages {
+        float: right;
+        margin-right: 1%;
+        .actions {
+          text-align: left;
+        }
+        ul {
+          margin-right: 0;
+          padding-right: 20px;
+        }
+      }
+    }
+
+    &.totals {
+      padding-right: 5px;
+      padding-left: 0;
+      .value {
+        text-align: right;
+        padding-right: 8px;
+        padding-left: 30px;
+      }
+    }
+  }
+
+  .commits-widget {
+    .commits-list {
+      li {
+        .left {
+          float: right;
+        }
+
+        .right {
+          margin-left: 0;
+          margin-right: 52px;
+        }
+      }
+    }
+  }
+
+  .content-list {
+    h3 {
+      padding-right: 5px;
+    }
+  }
+
+  .content-editor {
+    float: right;
+    width: 54.0540%;
+    margin-right: 1.8018%;
+    margin-left: 0;
+  }
+
+  // Logs
+
+  .admin-logs-table {
+    .btn {
+      .fa {
+        margin-left: 2px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .screened-ip-address-form {
+    margin-right: 6px;
+    margin-left: 0;
+  }
+
+  .screened-ip-addresses {
+    .ip_address {
+      text-align: right;
+    }
+  }
+
+  .staff-action-logs-controls {
+    margin: 0 6px 20px 0;
+    a.filter {
+      i {
+        margin-right: 6px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .staff-action-logs-instructions {
+    margin: 0 10px 10px 0;
+  }
+
+  // Backups
+  .delete-flag-modal, .agree-flag-modal {
+    button {
+      margin: 10px 10px 10px 0;
+    }
+  }
+
+  .start-backup-modal {
+    .btn {
+      margin: 10px 5px 10px 0;
+    }
+    .btn:first-of-type {
+      margin-right: 10px;
+    }
+  }
+
+  @media all and (min-width: 320px) and (max-width: 500px) {
+
+    .site-settings-detail {
+      .settings .setting {
+        .setting-label {
+          float: right;
+        }
+      }
+    }
+
+    .admin-container {
+      h2 {
+        float: right;
+      }
+    }
+  }
+
+  .badge-groupings {
+    .actions {
+      float: left;
+      a {
+        margin-right: 5px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .user-fields {
+    .user-field {
+      .form-display {
+        float: right;
+      }
+
+      .form-element {
+        float: right;
+      }
+
+      .controls {
+        float: left;
+        text-align: left;
+      }
+    }
+  }
+
+  .url-list {
+    .url {
+      margin-left: 10px;
+      margin-right: 0;
+    }
+  }
+
+  // Arrange things -- float the .pull-left class to the right.
+  .admin-content {
+    .admin-nav.pull-left {
+      float: right;
+    }
+  }
+} // End of .rtl
