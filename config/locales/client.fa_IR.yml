@@ -191,7 +191,7 @@ fa_IR:
       topic_count: "موضوعات"
       topic_count_long: "موضوعات ساخته شده"
       post_count: "پاسخ ها"
-      post_count_long: "پاسخ داده شده ها"
+      post_count_long: "پاسخ ها نوشته شده"
       no_results: "نتیجه ای یافت نشد."
       days_visited: "بازدید ها"
       days_visited_long: "بازدید روزانه"
@@ -239,7 +239,7 @@ fa_IR:
       topic_stats: "شمار موضوعات تازه."
       topic_stat_sentence:
         other: "%{count} موضوعات تازه در %{unit} گذشته."
-      post_stats: "شمار نوشته های تازه."
+      post_stats: "تعداد نوشته های جدید."
       post_stat_sentence:
         other: "%{count} نوشته تازه در %{unit} گذشته."
     ip_lookup:
@@ -247,7 +247,7 @@ fa_IR:
       hostname: نام میزبان
       location: موقعیت
       location_not_found: (ناشناس)
-      organisation: سزمان
+      organisation: سازمان
       phone: تلفن
       other_accounts: "سایر حساب های کاربری با این ای پی ."
       delete_other_accounts: "حذف %{count}"
@@ -262,7 +262,7 @@ fa_IR:
       profile: "نمایه"
       mute: "بی صدا"
       edit: "ویرایش تنظیمات"
-      download_archive: "بار گیری نوشته های من ."
+      download_archive: "دانلود نوشته های من"
       new_private_message: "پیام های جدید"
       private_message: "پیام"
       private_messages: "پیام‌ها"
@@ -284,13 +284,13 @@ fa_IR:
       moderator: "{{user}} یک مدیر است"
       admin: "{{user}} یک مدیر کل است"
       moderator_tooltip: "این کاربر یک مدیر است"
-      admin_tooltip: "این کاربر یک مدیر است"
+      admin_tooltip: "این کاربر یک ادمین است"
       suspended_notice: "این کاربر تا {{date}} در وضعیت معلق است."
-      suspended_reason: "در جابه‌جایی نوشته‌ها به موضوع خطایی روی داد."
-      github_profile: "گیت هاب"
-      mailing_list_mode: "برای هر نوشته جدید، رایانامه‌ای برای من بفرست (مگر اینکه من موضوع یا دسته‌بندی را ساکت کنم)"
+      suspended_reason: "دلیل: "
+      github_profile: "Github"
+      mailing_list_mode: "برای هر نوشته جدید، ایمیلی برای من بفرست (مگر اینکه من موضوع یا دسته‌بندی را ساکت کنم)"
       watched_categories: "تماشا شده"
-      watched_categories_instructions: "شما همهٔ‌ موضوعات تازه در این دسته‌بندی ها را خودکار خواهید دید. از همهٔ نوشته ها و موضوعات تازه آگاه خواهید شد، هم‌چنین شمار نوشته های تازه و نخوانده پس از فهرست موضوع نشان داده می‌شود."
+      watched_categories_instructions: "شما همهٔ‌ موضوعات تازه در این دسته‌بندی ها را  بطور خودکار خواهید دید. از همهٔ نوشته ها و موضوعات تازه آگاه خواهید شد، هم‌چنین شمار نوشته های تازه و نخوانده پس از فهرست موضوع نشان داده می‌شود."
       tracked_categories: "پی‌گیری شده"
       tracked_categories_instructions: "شما همهٔ‌ موضوعات تازه در این دسته‌ بندی ها را به صورت خودکار دنبال خواهید کرد. تعداد نوشته‌های تازه و خوانده نشده در کنار موضوع نشان داده خواهد شد."
       muted_categories: "بی صدا شد"
@@ -298,27 +298,27 @@ fa_IR:
       delete_account: "حساب من را پاک کن"
       delete_account_confirm: "آیا مطمئنید که می‌خواهید شناسه‌تان را برای همیشه پاک کنید؟ برگشتی در کار نیست!"
       deleted_yourself: "حساب‌ کاربری شما با موفقیت حذف شد."
-      delete_yourself_not_allowed: "در حال حاضر شما نمی‌توانید حساب کاربری خود را حذف کنید. به این منظور  با یکی از مدیران تماس بگیرید."
+      delete_yourself_not_allowed: "در حال حاضر شما نمی‌توانید حساب کاربری خود را حذف کنید. به این منظور  با یکی از مدیران برای پاک کردن حسابتان تماس بگیرید."
       unread_message_count: "پیام‌ها"
       admin_delete: "پاک کردن"
       users: "کاربران"
       muted_users: "بی صدا شده"
-      muted_users_instructions: "توقیف تمام اطلاعیه های این کاربران."
+      muted_users_instructions: "متفوقف کردن تمام اطلاعیه ها از طرف این کاربران."
       staff_counters:
         flags_given: "پرچم گذاری های مفید"
         flagged_posts: "نوشته های پرچم گذاری شده"
         deleted_posts: "پست های حذف شده"
         suspensions: "تعلیق کردن"
-        warnings_received: "هشدار ها"
+        warnings_received: "هشدارها"
       messages:
         all: "همه"
         mine: "خودم"
         unread: "خوانده‌ نشده‌"
       change_password:
-        success: "(رایانامه فرستاده شد)"
-        in_progress: "(در حال فرستادن رایانامه)"
+        success: "(ایمیل ارسال شد)"
+        in_progress: "(فرستادن ایمیل)"
         error: "(خطا)"
-        action: "ارسال کلمه عبور به ایمیل"
+        action: "ارسال ریست رمز عبور به ایمیل "
         set_password: "تغییر کلمه عبور"
       change_about:
         title: "تغییر «دربارهٔ من»"
@@ -342,7 +342,7 @@ fa_IR:
         uploaded_avatar_empty: "افزودن تصویر شخصی"
         upload_title: "تصویرتان را بار بگذارید"
         upload_picture: "بارگذاری تصویر"
-        image_is_not_a_square: "اخطار : ما تصویر شما بریدیم;طول و عرض برابر نبود"
+        image_is_not_a_square: "اخطار: ما تصویر شما بریدیم; طول و عرض برابر نبود."
       change_profile_background:
         title: "پس‌زمینه نمایه"
         instructions: "تصاویر پس‌زمینه نمایه‌ها در مرکز قرار میگیرند و به صورت پیش‌فرض طول 850px دارند."
@@ -350,10 +350,10 @@ fa_IR:
         title: "پس زمینه کارت کابر"
         instructions: "تصاویر پس زمینه در مرکز قرار خواهند گرفت و عرض  پیشفرض آن 590 پیکسل است"
       email:
-        title: "رایانامه"
+        title: "ایمیل"
         instructions: "هرگز بصورت عمومی نشان نده"
-        ok: "رایانامه‌ی تایید را برایتان می‌فرستیم"
-        invalid: "لطفا یک آدرس رایانامه معتبر وارد کنید"
+        ok: "ایمیلی برای تایید برایتان می‌فرستیم"
+        invalid: "لطفا یک آدرس ایمیل معتبر وارد کنید"
         authenticated: "ایمیل شما تصدیق شد توسط {{provider}}"
         frequency:
           zero: "ما برای شما سریعا ایمیلی می فرستیم در صورتی که چیزهای فرستاده شده در ایمیل را نخوانده باشید"
@@ -369,7 +369,7 @@ fa_IR:
         title: "نام کاربری"
         instructions: "منحصر به فرد،بدون فاصله،کوتاه"
         short_instructions: "می توانید به کاربران دیگر اشاره کنید با@{{username}}"
-        available: "نام کاربری انتخابی برای شما در دسترس است"
+        available: "نام کاربری شما موجود است"
         global_match: "ایمیل منطبق نام کاربری ثبت شد."
         global_mismatch: "از پیش ثبت شده. {{suggestion}} چطور است؟"
         not_available: "فراهم نیست. {{suggestion}} چطور است؟"

@@ -19,7 +19,7 @@ class RTL
   end
 
   def rtl_locales
-    %w(he ar fa_IR en)
+    %w(he ar fa_IR)
   end
 
   def css_class
