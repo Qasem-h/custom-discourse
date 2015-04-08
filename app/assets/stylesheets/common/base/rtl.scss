@@ -840,15 +840,60 @@
   }
 
   // topic.scss
-  
+
   #topic-title {
     .title-wrapper {
       float: right;
+
       .btn-small {
         margin: 0 0 0 6px;
       }
+
+      .private-message-glyph {
+        float: right;
+        margin: 0 0 0 5px;
+      }
     }
   }
+
+  // base/topic-admin-menu.scss
+  .show-topic-admin {
+    top: 120px;
+    left: 10px;
+  }
+
+  .topic-admin-menu {
+    top: 120px;
+    left: 0 !important;
+  }
+
+  // desktop/topic-post.scss
+  #selected-posts {
+    padding-right: 20px;
+    margin-right: 330px;
+
+    button {
+      text-align: right;
+    }
+
+    h3 i {
+      margin-left: 7px;
+    }
+  }
+
+  // Notification options
+  .notification-options {
+    button {
+      float: right;
+    }
+
+    &.open .dropdown-menu {
+      right: 0;
+    }
+  }
+
+  // common/admin/admin_base.scss
+
 
 
 }

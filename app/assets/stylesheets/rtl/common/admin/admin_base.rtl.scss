@@ -1,0 +1,436 @@
+.rtl {
+
+  .admin-contents table {
+    tr {
+      text-align: right;
+    }
+  }
+
+  .content-list li a span.count {
+    float: left;
+    margin-left: 10px;
+  }
+
+  .admin-content {
+
+    .view-options {
+      float: left;
+    }
+    table.report {
+
+      .bar-container {
+        float: right;
+        margin-left: 15px;
+
+        .bar {
+          text-align: left;
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+
+  .ip-lookup {
+
+    .location-box {
+      left: 0px;
+      padding: 12px 12px 5px 12px;
+    }
+  }
+
+  .admin-controls {
+    padding: 10px 0 3px 10px;
+
+    .controls {
+      margin-right: 10px;
+    }
+    button {
+      margin-left: 5px;
+
+    }
+    input[type=text] {
+      float: right;
+    }
+    .result-message {
+      padding-right: 10px;
+      padding-left: 0;
+    }
+    .search {
+      float: left;
+      margin-right: 10px;
+    }
+    .toggle {
+      float: left;
+    }
+    label {
+      margin-left: 5px;
+      margin-right: 0;
+    }
+  }
+
+  .admin-nav {
+    .nav-stacked {
+      border-left: none;
+    }
+  }
+
+  .admin-detail {
+    margin-right: 0;
+    border-right: solid 1px scale-color-diff();
+    padding: 30px 30px 30px 0;
+  }
+
+  .settings {
+    .setting {
+      .setting-label {
+        float: right;
+        margin-left: 12px;
+      }
+      .setting-value {
+        float: right;
+      }
+      .setting-controls {
+        float: right;
+      }
+      .input-setting-list {
+
+        li.sortable-placeholder {
+          padding: 3px 18px 3px 5px;
+          margin: 3px 5px 3px 0;
+        }
+      }
+
+    }
+  }
+
+  .user-controls {
+    text-align: left;
+  }
+
+  .display-row {
+    .field {
+      float: right;
+      margin-right: 12px;
+    }
+    .value {
+      float: right;
+      margin-right: 12px;
+    }
+    .long-value {
+      float: right;
+      margin-right: 12px;
+
+      button {
+        margin-right: 10px;
+        margin-left: 0;
+      }
+    }
+
+    .controls {
+      float: right;
+      margin-right: 12px;
+      .btn {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  // Badges area
+  .badges {
+    .content-list ul {
+      .list-badge {
+        float: left;
+      }
+    }
+
+
+    .form-horizontal {
+      .delete-link {
+        margin-right: 15px;
+        margin-left: 0;
+      }
+    }
+
+    .buttons {
+      float: right;
+      .saving {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .badge-query-preview {
+    .grant-count, .sample, .error-header {
+      margin-right: 10px;
+    }
+  }
+
+  // Groups area
+  .groups {
+    .ac-wrap {
+      .item {
+        margin-left: 0 !important;
+      }
+    }
+  }
+
+  // Customise area
+  .customize {
+    .nav.nav-pills {
+      margin-right: 10px;
+      margin-left: 0;
+    }
+    .content-list, .current-style {
+      float: right;
+    }
+    .current-style {
+      .toggle-mobile {
+        left: 35px;
+      }
+      .toggle-maximize {
+        position: absolute;
+        left: -5px;
+      }
+      .delete-link {
+        margin-right: 15px;
+      }
+      .preview-link {
+        margin-right: 15px;
+      }
+      padding-right: 10px;
+      .status-actions {
+        float: left;
+        span {
+          margin-left: 10px;
+          margin-right: 0;
+        }
+      }
+      .buttons {
+        float: right;
+        .saving {
+          margin-right: 10px;
+        }
+      }
+    }
+    .color-scheme {
+      .controls {
+        span, button, a {
+          margin-left: 10px;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .admin-flags {
+    th {
+      text-align: right;
+    }
+    .flaggers {
+      padding: 8px 5px 0 0;
+    }
+    .action {
+      text-align: left;
+    }
+  }
+
+  /* Dashboard */
+
+  .dashboard-left {
+    float: right;
+  }
+  .dashboard-right {
+    float: left;
+  }
+
+
+  table.api-keys {
+    th {
+      text-align: right;
+    }
+  }
+
+  .dashboard-stats {
+    margin-left: 40px;
+
+    table {
+      th.title {
+        text-align: right;
+      }
+    }
+
+    &.detected-problems {
+
+      .look-here {
+        float: right;
+      }
+
+      .problem-messages {
+        float: right;
+        margin-right: 1%;
+        .actions {
+          text-align: left;
+        }
+        ul {
+          margin-right: 0;
+          padding-right: 20px;
+        }
+      }
+    }
+
+    &.totals {
+      padding-right: 5px;
+      padding-left: 0;
+      .value {
+        text-align: right;
+        padding-right: 8px;
+        padding-left: 30px;
+      }
+    }
+  }
+
+  .commits-widget {
+
+    .commits-list {
+
+      li {
+        .left {
+          float: right;
+        }
+        .right {
+          margin-left: 0;
+          margin-right: 52px;
+        }
+      }
+    }
+  }
+
+  .content-list {
+
+    h3 {
+      padding-right: 5px;
+    }
+  }
+
+  .content-editor {
+    float: right;
+    width: 54.0540%;
+    margin-right: 1.8018%;
+    margin-left: 0;
+  }
+
+  // Logs
+
+  .admin-logs-table {
+    .btn {
+      .fa {
+        margin-left: 2px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .screened-ip-address-form {
+    margin-right: 6px;
+    margin-left: 0;
+  }
+
+  .screened-ip-addresses {
+    .ip_address {
+      text-align: right;
+    }
+  }
+
+
+  .staff-action-logs-controls {
+    margin: 0 6px 20px 0;
+    a.filter {
+      i {
+        margin-right: 6px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .staff-action-logs-instructions {
+    margin: 0 10px 10px 0;
+  }
+
+  // Backups
+  // --------------------------------------------------
+
+  .delete-flag-modal, .agree-flag-modal {
+    button {
+      margin: 10px 10px 10px 0;
+    }
+  }
+
+  .start-backup-modal {
+    .btn {
+      margin: 10px 5px 10px 0;
+    }
+    .btn:first-of-type {
+      margin-right: 10px;
+    }
+  }
+
+  @media all and (min-width: 320px) and (max-width: 500px) {
+
+    .site-settings-detail {
+
+      .settings .setting {
+        .setting-label {
+          float: right;
+        }
+      }
+    }
+
+    .admin-container {
+      h2 {
+        float: right;
+      }
+    }
+  }
+
+  .badge-groupings {
+    .actions {
+      float: left;
+      a {
+        margin-right: 5px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .user-fields {
+
+    .user-field {
+      .form-display {
+        float: right;
+      }
+
+      .form-element {
+        float: right;
+      }
+
+      .controls {
+        float: left;
+        text-align: left;
+      }
+    }
+  }
+
+  .url-list {
+    .url {
+      margin-left: 10px;
+      margin-right: 0;
+    }
+  }
+  
+  // Arange things
+  .admin-content {
+    .admin-nav.pull-left {
+      float: right;
+    }
+  }
+}
