@@ -367,10 +367,13 @@
     float: right;
   }
 
-  .extra-info-wrapper {
+  .extra-info-wrapper .topic-link {
     float: right;
     width: 78%;
     max-width: 800px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   body .form-horizontal .controls {
@@ -846,7 +849,7 @@
       }
     }
   }
-  
+
   .extra-info-wrapper .topic-statuses {
     float: right;
     margin-left: 5px;
