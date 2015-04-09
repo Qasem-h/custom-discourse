@@ -1,0 +1,759 @@
+// rtl overrides for mobile/compose.scss
+.rtl {
+  // styles that apply to the reply pane that slides up to compose replies
+
+  #reply-control {
+    // used for upload link
+    .composer-bottom-right {
+      left: -5px;
+    }
+    #draft-status, #file-uploading, .mobile-file-upload {
+      float: left;
+      margin-left: 8px;
+    }
+    #file-uploading {
+      right: 51%;
+    }
+    .toggler {
+      left: 1px;
+      &:before {
+        font-family: "FontAwesome";
+        content: "\f078";
+      }
+    }
+    a.cancel {
+      padding-right: 7px;
+      float: right;
+    }
+    .control-row {
+      margin: 0 5px 0 0;
+    }
+
+    // The various states
+    &.draft {
+      .draft-text {
+        margin-left: 40px;
+      }
+      .toggler {
+        &:before {
+          font-family: "FontAwesome";
+          content: "\f077";
+        }
+      }
+    }
+    &.saving {
+      .toggler {
+        &:before {
+          font-family: "FontAwesome";
+          content: "\f00d";
+        }
+      }
+    }
+
+    .contents {
+      .edit-reason-input {
+        margin-right: 2px;
+      }
+      #reply-title {
+        margin-left: 10px;
+      }
+    }
+    .popup-tip .close {
+      padding: 0 8px 2px 2px; // so my fingers can touch the little x
+    }
+    .title-input .popup-tip {
+      left: 5px;
+    }
+    .category-input .popup-tip {
+      left: 5px;
+    }
+    button.btn.no-text {
+      margin: 7px 5px 0 0;
+    }
+  }
+
+  #reply-control {
+    .wmd-controls {
+      .textarea-wrapper {
+        width: 100%;
+        .popup-tip {
+          left: 4px;
+        }
+      }
+      #wmd-input {
+        right: 0;
+      }
+    }
+  }
+
+  // rtl overrides for mobile/discourse.scss
+
+  h2#site-text-logo {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+
+  // rtl overrides for mobile/faqs.scss
+  .body-page {
+    margin-left: 0;
+    margin-right: 15px;
+    padding-right: 0;
+  }
+
+  // mobile/header.scss
+  .d-dropdown {
+    .searching {
+      left: 25px;
+    }
+    .btn .fa {
+      margin-right: 0;
+      margin-left: 5px;
+    }
+  }
+
+  // mobile/login.scss
+  #login-form {
+    label { float: right; }
+    textarea, input, select { clear: right; }
+  }
+
+  a#forgot-password-link { clear: right; float: right; }
+
+  .btn-primary { float: right; }
+
+  .create-account .modal-body {
+    tr.input {
+      td.label {
+        padding-left: 5px;
+        padding-right: 0;
+      }
+    }
+  }
+
+  .create-account {
+    .user-field {
+      .controls {
+        margin-right: 85px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  // mobile/modal.scss
+
+  .modal-footer .btn {
+    margin-left: 5px;
+  }
+  .modal-footer .btn-group .btn + .btn {
+    margin-right: -1px;
+  }
+
+  .modal-header {
+    h3 {
+      padding-right: 15px;
+      padding-left: 0;
+    }
+  }
+  .close {
+    float: left;
+    padding: 10px 5px 5px 15px;
+  }
+
+  #move-selected {
+    input[type=radio] {
+      margin-left: 10px;
+    }
+  }
+
+  .custom-message-length {
+    margin: -10px 20px 10px 0;
+  }
+
+  .flag-message {
+    margin-right: 20px;
+    width: 95% !important;
+  }
+
+  .edit-category-modal {
+    .secure-category-options {
+      margin: 10px 16px 0 0;
+      .badge-list {
+        li {
+          margin: 0 0 8px 4px;
+        }
+      }
+    }
+  }
+
+  .delete-flag-modal, .agree-flag-modal {
+    .btn {
+      float: none !important;
+    }
+  }
+
+  // mobile/topic-list.scss
+
+  .list-controls {
+    .nav {
+      float: right;
+      margin-left: 15px;
+      margin-right: 0;
+    }
+    .btn {
+      float: left;
+      margin-right: 8px;
+      margin-left: 0;
+    }
+  }
+
+  .list-container .full-width {
+    margin-right: 0;
+  }
+
+  // Base list
+
+  .topic-list {
+
+    .topic-item-stats {
+      .category, .num, .last-poster {
+        float: right;
+      }
+    }
+
+    .age {
+      a {
+        padding: 15px 5px 15px 10px;
+      }
+    }
+  }
+
+  // Category list
+
+  .topic-list.categories {
+
+    .featured-users {
+      @include mobile-portrait  {
+        clear: right;
+      }
+      @include not-mobile-portrait  {
+        float: left;
+      }
+    }
+  }
+
+  .category-list-item {
+
+    .posters {
+      float: right;
+    }
+    > footer {
+      figure {
+        float: right;
+        margin: 3px 0 0 7px;
+      }
+      .btn {
+        float: left;
+        margin-right: 7px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  // Misc. stuff
+
+  .list-controls {
+    .category-dropdown-button {
+      padding: 4px 8px 4px 10px;
+    }
+  }
+
+  .dropdown-menu {
+    right: 0;
+    float: right;
+  }
+
+  ol.category-breadcrumb {
+    margin: 5px 0 0 10px;
+  }
+
+  .top-lists {
+    h2 {
+      margin-right: 10px;
+      margin-left: 0;
+
+    }
+    .btn-default.pull-right {
+      margin-left: 10px;
+      margin-right: 0;
+    }
+  }
+
+  button.dismiss-read {
+    margin-left: 10px;
+    margin-right: 0;
+  }
+  td.main-link {
+    a.title {
+      padding: 5px 0 5px 10px;
+    }
+  }
+
+  // mobile/topic-post.scss
+
+  span.badge-posts {
+    margin-left: 5px;
+    margin-right: 0;
+  }
+
+  .show-replies {
+    i {
+      margin-right: 5px;
+      margin-left: 0;
+    }
+  }
+
+  button {
+    float: right;
+    .read-icon {
+      &:before {
+        font-family: "FontAwesome";
+        content: "\f02e";
+      }
+      &.unseen {
+        &:before {
+          content: "\f097";
+        }
+      }
+    }
+  }
+
+  .post-controls button.create {
+    float: left;
+  }
+
+
+  .post-admin-menu {
+    position: absolute;
+    text-align: right;
+    right: 135px;
+
+    li {
+      i.fa {
+        margin-left: 14px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .embedded-posts {
+    .topic-meta-data h5 a {
+      margin-right: 10px;
+      margin-left: 0;
+    }
+  }
+
+  .post-action {
+    float: left;
+    margin-left: 10px;
+    margin-right: 0;
+    clear: left;
+  }
+
+  .post-action .relative-date {
+    margin-right: 5px;
+    margin-left: 0;
+  }
+
+  a.reply-to-tab {
+    position: absolute;
+    left: 80px;
+  }
+
+  a.star {
+    float: right;
+    font-size: 1.3em;
+  }
+
+  .topic-map {
+
+    .user {
+      float: right;
+      margin-left: 10px;
+      margin-right: 0;
+    }
+
+    .avatars {
+      > div {
+        float: right;
+      }
+      .post-count {
+        position: absolute;
+        top: 2px;
+        left: 6px;
+      }
+    }
+
+    /* in expanded avatar view, limit to one line for now */
+    .avatars.clearfix {
+      margin-right: 10px;
+      margin-left: 0;
+    }
+
+    .avatar {
+      float: right;
+      margin-left: 4px;
+      margin-right: 0;
+    }
+
+    .map {
+      li {
+        float: right;
+      }
+
+      .avatar + a {
+        float: right;
+      }
+    }
+
+    .topic-links {
+      .badge-notification {
+        margin: 1px 0 2px 5px;
+      }
+    }
+
+    .buttons {
+      float: left;
+      .btn {
+        border: 0;
+        border-bottom: 1px solid scale-color-diff();
+        border-right: 1px solid scale-color-diff();
+        border-left: none;
+      }
+    }
+  }
+
+  /* this is to force the drop-down notification state description para below the button */
+
+  #suggested-topics {
+    clear: right;
+  }
+
+  #topic-footer-buttons {
+    .btn {
+      margin-left: 10px;
+      margin-right: 0;
+      .fa-star {
+        margin-left: 5px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  #topic-title {
+    z-index: 1000;
+    margin: 0 0 0 0 !important;
+    padding: 15px 10px 15px 10px;
+  }
+
+  .dropdown-menu li  {
+    .fa {
+      float: right;
+      margin-left: 5px;
+      margin-right: 0;
+    }
+  }
+
+  .dropdown-toggle {
+    float: right;
+  }
+
+  #share-link {
+    width: 290px;
+    right: auto;
+    left: 4px;
+  }
+
+  #selected-posts {
+    float: right;
+    width: 97%;
+    padding-right: 3%;
+  }
+
+
+  // unhide the simple "select just this post" button
+  button.select-post {
+    position: absolute;
+    right: 200px;
+  }
+
+  .post-select {
+    float: left;
+    margin-left: 20px;
+    margin-right: 0;
+  }
+
+  #show-topic-admin {
+    left: 0;
+    border-left: 0;
+    padding-left: 4px;
+    padding-right: 5px;
+  }
+
+  .topic-avatar {
+    float: right;
+  }
+
+  .topic-meta-data {
+    position: absolute;
+    width: 100%;
+    right: 0px;
+    .names {
+      margin: 5px 5px 0 0;
+      padding-right: 60px;
+      padding-left: 0;
+    }
+    .post-info {
+      float: left;
+      margin: 4px 0 0 10px;
+      .edits {
+        margin-left: 5px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .user-title {
+    color: #aaa;
+    padding-top: 2px;
+    overflow: hidden;
+    margin-left: 50px;
+    margin-right: 0;
+  }
+
+  // mobile/topic.scss
+  .topic-meta-data-inside {
+    float: left;
+    margin-left: 5px;
+    margin-right: 0;
+  }
+
+  .edits {
+    margin-left: 5px;
+    margin-right: 0;
+  }
+
+  #topic-title {
+    margin: 0 20px 10px 60px;
+  }
+
+  /* both blocks that appear under the standard post control buttons */
+  .notification-options, .pinned-options {
+    float: right;
+    margin-top: 0px;
+    padding-top: 1px;
+  }
+
+  #topic-closing-info {
+    margin-right: 10px;
+    margin-left: 0;
+  }
+
+  #topic-progress-wrapper {
+    margin-left: 145px;
+    margin-right: 0;
+  }
+
+  #topic-progress-expanded {
+    .jump-form {
+      input[type="text"] {
+        float: right;
+      }
+      button.btn {
+        float: left !important;
+      }
+    }
+  }
+
+  #topic-progress {
+    /* as a big ol' click target, don't let text inside be selected */
+    @include unselectable;
+
+    i.fa {
+      position: absolute;
+      left: 8px;
+      bottom: 9px;
+    }
+  }
+
+  // inline editing of title on mobile
+  .title-wrapper {
+    .btn-small {
+      padding: 8px 12px;
+      margin: 6px 0 0 6px;
+    }
+    .select2-container {
+      margin-top: 8px;
+      width: 95% !important;
+    }
+  }
+
+  // mobile/user.scss
+  .user-preferences {
+    .control-group {
+      padding: 8px 8px 8px 36px;
+    }
+    .static {
+      margin-right: 5px;
+      margin-left: 0;
+    }
+    .avatar {
+      margin-right: 3px;
+      margin-left: 0;
+    }
+
+    .other .controls-dropdown {
+      padding-right: 5px;
+      padding-left: 0;
+    }
+  }
+
+  .user-preferences {
+
+    .avatar {
+      margin-right: 3px;
+      margin-left: 0;
+    }
+  }
+
+  .user-main {
+    float: right;
+
+    table.group-members {
+      th.seen {
+        text-align: left;
+      }
+      td {
+        img {
+          margin-left: 10px;
+          margin-right: 0;
+        }
+        span.last-seen-at {
+          float: left;
+        }
+      }
+    }
+
+    .user-content {
+      .btn.right {
+        float: left;
+      }
+
+      table {
+        th {
+          text-align: right;
+        }
+      }
+    }
+
+    .about {
+      .secondary {
+        dl dd {
+          margin: 0 5px 0 15px;
+        }
+      }
+
+      .details {
+        h3 {
+          i:not(:first-of-type) {
+            margin-right: 10px;
+            margin-left: 0;
+          }
+        }
+
+        .groups {
+          margin-right: 10px;
+          margin-left: 0;
+        }
+
+        img.avatar {
+          float: right;
+          margin-left: 15px;
+          margin-right: 0;
+        }
+
+        .primary {
+          float: right;
+          .primary-textual {
+            float: right;
+          }
+        }
+      }
+
+      .controls {
+        float: left;
+        text-align: left;
+      }
+    }
+
+    .about.collapsed-info {
+      .details {
+        .primary {
+          text-align: right;
+          .avatar {
+            float: right;
+            margin-left: 10px;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+
+    .user-stream {
+      .time, .delete-info {
+        float: left;
+      }
+      .avatar-link {
+        float: right;
+        margin-left: 4px;
+        margin-right: 0;
+      }
+      .remove-bookmark {
+        float: left;
+      }
+      .notification {
+        p {
+          margin-right: 10px;
+          margin-left: 0;
+        }
+        .time {
+          margin-right: 10px;
+          margin-left: 0;
+        }
+      }
+    }
+
+    .staff-counters {
+      text-align: right;
+      > div {
+        margin: 0 0 0 10px;
+        &:first-of-type {
+          padding-right: 10px;
+          padding-left: 0;
+        }
+      }
+    }
+
+    .user-field {
+      label {
+        float: right;
+        text-align: left;
+      }
+      .controls {
+        label {
+          text-align: right;
+        }
+      }
+    }
+  }
+} // end of .rtl
