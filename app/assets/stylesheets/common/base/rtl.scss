@@ -367,10 +367,14 @@
     float: right;
   }
 
-  .extra-info-wrapper {
+  .extra-info-wrapper .topic-link {
     float: right;
     width: 78%;
     max-width: 800px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   body .form-horizontal .controls {
@@ -835,6 +839,7 @@
   #topic-title {
     .title-wrapper {
       float: right;
+      width: 90%;
 
       .btn-small {
         margin: 0 0 0 6px;

@@ -559,8 +559,7 @@
   }
 
   #topic-progress-wrapper {
-    margin-left: 145px;
-    margin-right: 0;
+//    right: 0;
   }
 
   #topic-progress-expanded {
@@ -576,7 +575,7 @@
 
   #topic-progress {
     /* as a big ol' click target, don't let text inside be selected */
-    @include unselectable;
+    position: relative;
 
     i.fa {
       position: absolute;
