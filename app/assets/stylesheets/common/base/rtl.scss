@@ -839,7 +839,17 @@
         float: right;
         margin: 0 0 0 5px;
       }
+
+      .topic-statuses {
+        float: right;
+        margin-left: 5px;
+      }
     }
+  }
+  
+  .extra-info-wrapper .topic-statuses {
+    float: right;
+    margin-left: 5px;
   }
 
   // base/topic-admin-menu.scss -- rtl styles to override admin-menu.scss
