@@ -1,15 +1,10 @@
-// These are the variables you have to work with:
-//$direction: ltr;
-//$default-float: left;
-//$opposite-float: right;
-//$default-direction: ltr;
-//$opposite-direction: rtl;
+$direction: ltr;
+$default-float: left;
+$opposite-float: right;
 
-$direction: rtl;
-$default-float: right;
-$opposite-float: left;
-$default-direction: rtl;
-$opposite-direction: lrt;
+//$direction: rtl;
+//$default-float: right;
+//$opposite-float: left;
 
 // Mixins
 
