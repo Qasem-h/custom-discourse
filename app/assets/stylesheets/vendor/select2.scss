@@ -295,7 +295,7 @@ Version: @@ver@@ Timestamp: @@timestamp@@
 
 .select2-results ul.select2-result-sub {
     margin: 0;
-    padding-left: 0;
+    @include padding-left(0);
 }
 
 .select2-results li {
