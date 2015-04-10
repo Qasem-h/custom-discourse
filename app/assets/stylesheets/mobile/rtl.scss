@@ -549,7 +549,7 @@
   /* both blocks that appear under the standard post control buttons */
   .notification-options, .pinned-options {
     float: right;
-    margin-top: 0px;
+    margin-top: 0;
     padding-top: 1px;
   }
 
@@ -559,7 +559,13 @@
   }
 
   #topic-progress-wrapper {
-//    right: 0;
+    position: fixed;
+    left: 0;
+    width: 0;
+  }
+
+  #topic-progress-wrapper.docked {
+    position: absolute;
   }
 
   #topic-progress-expanded {
@@ -574,13 +580,44 @@
   }
 
   #topic-progress {
-    /* as a big ol' click target, don't let text inside be selected */
     position: relative;
+    &.hidden {
+      display: none;
+    }
+    border: none;
+    background-color: scale-color-diff();
+    color: $primary;
+    width: 145px;
+    height: 34px;
 
+    /* as a big ol' click target, don't let text inside be selected */
+    @include unselectable;
+
+    .nums {
+      position: relative;
+      top: 9px;
+      width: 100%;
+      text-align: center;
+      z-index: 1;
+    }
+    h4 {
+      display: inline;
+      font-size: 1.286em;
+      line-height: 15px;
+    }
     i.fa {
       position: absolute;
-      left: 8px;
+      right: 8px;
       bottom: 9px;
+      z-index: 1;
+    }
+    .bg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      border-right: 1px solid scale-color($success, $lightness: 50%);
+      background-color: scale-color($success, $lightness: 50%);
     }
   }
 

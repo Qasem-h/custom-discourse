@@ -491,8 +491,12 @@
 
   // #topic-progress
   #topic-progress-wrapper {
-    left: 50%;
+    position: fixed;
+    right: 50%;
   }
+
+  // See media queries at bottom of file.
+
 
   #topic-progress-expanded {
     right: 345px;
@@ -506,31 +510,6 @@
       }
     }
   }
-
-  @media all and (max-width: 940px) {
-    #topic-progress,
-    #topic-progress-expanded {
-      right: 295px;
-    }
-  }
-
-  @media all and (max-width: 870px) {
-    #topic-progress,
-    #topic-progress-expanded {
-      right: 210px;
-    }
-  }
-
-  @media all and (max-width: 724px) {
-    #topic-progress-wrapper {
-      left: 0;
-    }
-    #topic-progress,
-    #topic-progress-expanded {
-      right: auto;
-      left: 145px;
-    }
-  } // End of #topic-progress
 
   // Set small logo margin -- this should be moved
   .logo-small {
@@ -1333,3 +1312,32 @@
     }
   }
 } // End of .rtl
+
+
+// .rtl media queries
+@media all and (max-width: 940px) {
+  .rtl #topic-progress,
+  .rtl #topic-progress-expanded {
+    right: 295px;
+  }
+}
+
+@media all and (max-width: 870px) {
+  .rtl #topic-progress,
+  .rtl #topic-progress-expanded {
+    right: 210px;
+  }
+}
+
+
+
+@media all and (max-width: 724px) {
+  .rtl #topic-progress-wrapper {
+    left: 0;
+    #topic-progress,
+    #topic-progress-expanded {
+      right: auto;
+      left: 145px;
+    }
+  }
+}
