@@ -1,0 +1,205 @@
+// Remove nth item from list.
+@function disc-remove-nth($list, $index) {
+  $result: ();
+  $index: if($index < 0, length($list) + $index + 1, $index);
+  @for $i from 1 through length($list) {
+    @if $i != $index {
+      $result: append($result, nth($list, $i));
+    }
+  }
+  @return $result;
+}
+
+// Checks that a global variable has been defined.
+@function disc-is-defined($value) {
+  @if not global-variable-exists($value) {
+    @error "`$#{$value}` must be defined for any of this to work";
+  }
+  @return $value;
+}
+
+// Returns the default float direction from the $direction value.
+// Will return an error if $direction is not defined. It should be enough to
+// only do the check in this one place.
+@function disc-default-float() {
+  @if disc-is-defined(direction) {
+    @return if($direction == ltr, left, right);
+  }
+}
+
+// Returns the opposite float direction from the global $direction.
+// We might not need this.
+@function disc-opposite-float() {
+  @return if($direction == ltr, right, left);
+}
+
+// Switches the values `right` and `left`, passes all other values unaltered.
+@function disc-switch-direction($dir) {
+  @if $dir == left {
+    @return right;
+  } @elseif $dir == right {
+    @return left;
+  } @elseif $dir == top {
+    @return bottom;
+  } @elseif $dir == bottom {
+    @return top;
+  } @else {
+    @return $dir;
+  }
+}
+
+// For $direction:ltr return float: #{$dir}, for $direction:rtl switch the values
+// right and left.
+// To be used as a replacement for float: $dir;
+@mixin float($dir) {
+  @if disc-default-float() == left {
+    float: $dir;
+  } @else {
+    float: disc-switch-direction($dir);
+  }
+}
+
+// To be used as a replacement for text-align: $dir;
+@mixin text-align($dir) {
+  @if disc-default-float() == left {
+    text-align: $dir;
+  } @else {
+    text-align: disc-switch-direction($dir);
+  }
+}
+
+// Append a direction onto a property name and give it a length value.
+@mixin property-direction-length($property, $direction, $length) {
+  $properties: (margin, padding);
+  $directions: (left, right);
+  @if not index($properties, $property) {
+    @warn "The `property-direction-distance` mixin requires either `margin` of `direction` as a property argument.";
+  }
+  @if not index($directions, $direction) {
+    @warn "The `property-direction-distance` mixin requires either `right` or `left` as a direction argument";
+  }
+  #{$property}-#{$direction}: $length;
+}
+
+@mixin margin-direction-length($direction, $length) {
+  margin-#{$direction}: $length;
+}
+
+@mixin padding-direction-length($direction, $length) {
+  padding-#{$direction}: $length;
+}
+
+// To be used in place of margin-left: $length;
+@mixin margin-left($length) {
+  $dir: if(disc-default-float() == left, left, right);
+  @include margin-direction-length($dir, $length);
+}
+
+// To be used in place of margin-right: $length;
+@mixin margin-right($length) {
+  $dir: if(disc-default-float() == left, right, left);
+  @include margin-direction-length($dir, $length);
+}
+
+// To be used in place of padding-left: $length;
+@mixin padding-left($length) {
+  $dir: if(disc-default-float() == left, left, right);
+  @include padding-direction-length($dir, $length);
+}
+
+// To be used in place of padding-right: $length;
+@mixin padding-right($length) {
+  $dir: if(disc-default-float() == left, right, left);
+  @include padding-direction-length($dir, $length);
+}
+
+// Create a property with values of $lengths. If disc-default-float == right and there
+// are four lengthe elements, switch the values for right and left - the second
+// and fourth elements on the list.
+@mixin property-with-lengths($property, $lengths) {
+  $arg-list-length: length($lengths);
+  $important: null;
+  $property-lengths: null;
+
+  // If the last value of the lengths list is !important, remove it and update the !important variable
+  @if nth($lengths, $arg-list-length) == '!important' {
+  $property-lengths: disc-remove-nth($lengths, $arg-list-length);
+  $important: !important;
+} @else {
+  $property-lengths: $lengths;
+}
+
+  // If there are less than 4 values, they are symmetrical for left and right,
+  // we can leave them alone.
+  @if length($property-lengths) < 4 {
+    #{$property}: $property-lengths if($important, $important, null);
+  } @else if length($property-lengths) == 4 {
+    @if disc-default-float() == left {
+      #{$property}: $property-lengths if($important, $important, null);
+    } @else {
+      // Default float is right - we need to switch the left and right values.
+      #{$property}: nth($property-lengths, 1) nth($property-lengths, 4)
+      nth($property-lengths, 3) nth($property-lengths, 2) if($important, $important, null);
+    }
+  } @else {
+    @warn "The `property-with-lengths()` function can take a maximum of 4 lengths";
+  }
+}
+
+// To be used in place of margin: $lengths;
+@mixin margin($lengths) {
+  @include property-with-lengths(margin, $lengths);
+}
+
+// To be used in place of padding: $lengths;
+@mixin padding($lengths) {
+  @include property-with-lengths(padding, $lengths);
+}
+
+// To be used in place of left: $position;
+@mixin left($position) {
+  @if disc-default-float() == left {
+    left: $position;
+  } @else {
+    right: $position;
+  }
+}
+
+// To be used in place of right: $position;
+@mixin right($position) {
+  @if disc-default-float() == left {
+    right: $position;
+  } @else {
+    left: $position;
+  }
+}
+
+@mixin directional-triangle($sibling-element,  $top, $left, $width: 8px,
+$triangle-color: #000, $dir: disc-default-float()) {
+  $colored-border-position: $dir;
+  #{$sibling-element} {
+    position: relative;
+  }
+  #{$sibling-element}::after {
+    position: absolute;
+    top: $top;
+    @include left($left);
+    content: " ";
+    border: solid transparent;
+    border-width: $width;
+    border-#{$colored-border-position}-color: $triangle-color;
+  }
+}
+
+$direction: rtl;
+html { direction: $direction;}
+
+.scratch {
+  position: relative;
+  display: inline-block;
+  @include padding(22px);
+  background: #ddd;
+  @include left(12px);
+  @include right(100px);
+}
+@include directional-triangle('.scratch', 33%, 90%, 12px, #666);

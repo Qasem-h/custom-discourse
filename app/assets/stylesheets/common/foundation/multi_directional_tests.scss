@@ -1,0 +1,354 @@
+// Mixins and functions for creating multidirectional style sheets
+
+// Utility functions
+// Functions are prefixed with 'disc' to avoid name collisions.
+
+// Remove the nth item from a list
+@function disc-remove-nth($list, $index) {
+  $result: ();
+  $index: if($index < 0, length($list) + $index + 1, $index);
+  @for $i from 1 through length($list) {
+    @if $i != $index {
+      $result: append($result, nth($list, $i));
+    }
+  }
+  @return $result;
+}
+
+/* test disc-remove-nth() */
+// -----------------------------------------------------------------------------
+$first-list: (2px 8px 12px 9px);
+$second-list: disc-remove-nth($first-list, length($first-list));
+.test-box {
+  margin: $second-list;
+}
+
+// -----------------------------------------------------------------------------
+
+// Checks that a global variable has been defined.
+@function disc-is-defined($value) {
+  @if not global-variable-exists($value) {
+    @error "`$#{$value}` must be defined for any of this to work";
+  }
+  @return $value;
+}
+
+/* test disc-is-defined() */
+// -----------------------------------------------------------------------------
+$test: disc-is-defined(not-defined); // Should throw an error.
+$defined-variable: 'this is defined';
+$test: disc-is-defined(defined-variable); // Expect this to work.
+.test-box { content: $test;}
+
+// -----------------------------------------------------------------------------
+
+// Returns the default float direction from the $direction value.
+// Will return an error if $direction is not defined. It should be enough to
+// only do the check in this one place.
+@function disc-default-float() {
+  @if disc-is-defined(direction) {
+    @return if($direction == ltr, left, right);
+  }
+}
+
+/* test disc-default-float() */
+// -----------------------------------------------------------------------------
+$test: disc-default-float(); // This should throw an error.
+// Now set the global direction variable:
+$direction: rtl;
+$test: disc-default-float(); // $test should have the value 'right'
+.test-box { float: $test; }
+
+// -----------------------------------------------------------------------------
+
+// Returns the opposite float direction from the global $direction.
+// We might not need this.
+@function disc-opposite-float() {
+  @return if($direction == ltr, right, left);
+}
+
+/* test disc-opposite-float() */
+// -----------------------------------------------------------------------------
+$direction: ltr;
+$test: disc-opposite-float();
+// Expect .test-box { float: left; }
+.test-box { float: $test; }
+
+// -----------------------------------------------------------------------------
+
+// Switches the values `right` and `left`, and `top` and `bottom` passes all
+// other values unaltered.
+@function disc-switch-direction($dir) {
+  @if $dir == left {
+    @return right;
+  } @elseif $dir == right {
+    @return left;
+  } @elseif $dir == top {
+    @return bottom;
+  } @elseif $dir == bottom {
+    @return top;
+  } @else {
+    @return $dir;
+  }
+}
+
+/* test disc-switch-direction() */
+// -----------------------------------------------------------------------------
+$right: disc-switch-direction(left); // Expect right
+$left: disc-switch-direction(right); // Expect left
+$top: disc-switch-direction(bottom); // Expect top
+$bottom: disc-switch-direction(top); // Expect bottom
+$none: disc-switch-direction(none);  // Expect none
+
+.test-box {
+  content: $right;
+  content: $left;
+  content: $top;
+  content: $bottom;
+  content: $none;
+}
+
+// -----------------------------------------------------------------------------
+
+// Private mixins -- don't test
+// -----------------------------------------------------------------------------
+
+// Mixins for creating the margin-left, margin-right, padding-left, padding-right mixins.
+
+// Append a direction onto a property name and give it a length value.
+@mixin property-direction-length($property, $direction, $length) {
+  $properties: (margin, padding);
+  $directions: (left, right);
+  @if not index($properties, $property) {
+    @warn "The `property-direction-distance` mixin requires either `margin` of `direction` as a property argument.";
+  }
+  @if not index($directions, $direction) {
+    @warn "The `property-direction-distance` mixin requires either `right` or `left` as a direction argument";
+  }
+  #{$property}-#{$direction}: $length;
+}
+
+// Create a margin with a chosen direction.
+@mixin margin-direction-length($direction, $length) {
+  margin-#{$direction}: $length;
+}
+
+// Create padding with a chosen direction.
+@mixin padding-direction-length($direction, $length) {
+  padding-#{$direction}: $length;
+}
+
+// Create a property with values of $lengths. If disc-default-float == right and there
+// are four length elements, switch the values for right and left - the second
+// and fourth elements on the list.
+@mixin property-with-lengths($property, $lengths) {
+  $arg-list-length: length($lengths);
+  $important: null;
+  $property-lengths: null;
+
+  // If the last value of the lengths list is !important, remove it and update the !important variable
+  @if nth($lengths, $arg-list-length) == '!important' {
+    $property-lengths: disc-remove-nth($lengths, $arg-list-length);
+    $important: !important;
+  } @else {
+    $property-lengths: $lengths;
+  }
+
+  // If there are less than 4 values, they are symmetrical for left and right,
+  // we can leave them alone.
+  @if length($property-lengths) < 4 {
+    #{$property}: $property-lengths if($important, $important, null);
+  } @else if length($property-lengths) == 4 {
+    @if disc-default-float() == left {
+      #{$property}: $property-lengths if($important, $important, null);
+    } @else {
+      // Default float is right - we need to switch the left and right values.
+      #{$property}: nth($property-lengths, 1) nth($property-lengths, 4)
+      nth($property-lengths, 3) nth($property-lengths, 2) if($important, $important, null);
+    }
+  } @else {
+    @warn "The `property-with-lengths()` function can take a maximum of 4 lengths";
+  }
+}
+
+
+
+// Public mixins
+// -----------------------------------------------------------------------------
+
+// For $direction:ltr return float: #{$dir}, for $direction:rtl switch the values
+// right and left.
+// To be used as a replacement for float: $dir;
+@mixin float($dir) {
+  @if disc-default-float() == left {
+    float: $dir;
+  } @else {
+    float: disc-switch-direction($dir);
+  }
+}
+
+/* test @include float(); */
+// -----------------------------------------------------------------------------
+$direction: rtl;
+.test-box {
+  @include float(right); // Expect float: left;
+}
+.test-box-2 {
+  @include float(left); // Expect float: right;
+}
+
+// Change direction
+$direction: ltr;
+.test-box-3 {
+  @include float(right); // Expect float: right;
+}
+.test-box-4 {
+  @include float(left); // Expect float left;
+}
+
+// -----------------------------------------------------------------------------
+
+// To be used as a replacement for text-align: $dir;
+@mixin text-align($dir) {
+  @if disc-default-float() == left {
+    text-align: $dir;
+  } @else {
+    text-align: disc-switch-direction($dir);
+  }
+}
+
+/* test @include text-align() */
+// -----------------------------------------------------------------------------
+$direction: ltr;
+.test-box {
+  @include text-align(left); // Expect text-align: left;
+}
+.test-box-2 {
+  @include text-align(right); // Expect text-align: right;
+}
+.test-box-3 {
+  @include text-align(center); // Expect text-align: center;
+}
+.test-box-4 {
+  @include text-align(foo); // Expect text-align: foo;
+}
+
+// Change direction
+$direction: rtl;
+.test-box {
+  @include text-align(left); // Expect text-align: right;
+}
+.test-box-2 {
+  @include text-align(right); // Expect text-align: left;
+}
+.test-box-3 {
+  @include text-align(center); // Expect text-align: center;
+}
+.test-box-4 {
+  @include text-align(foo); // Expect text-align: foo;
+}
+
+// -----------------------------------------------------------------------------
+
+// To be used in place of margin-left: $length;
+@mixin margin-left($length) {
+  $dir: if(disc-default-float() == left, left, right);
+  @include margin-direction-length($dir, $length);
+}
+
+// To be used in place of margin-right: $length;
+@mixin margin-right($length) {
+  $dir: if(disc-default-float() == left, right, left);
+  @include margin-direction-length($dir, $length);
+}
+
+/* test @include margin-left(); @include padding-right(); */
+$direction: ltr;
+.testbox {
+  @include margin-left(3px); /* Expect margin-left: 3px; */
+  @include margin-right(7px); /* Expect margin-right: 7px; */
+  @include margin-right(auto); /* Expect margin-right: auto; */
+  @include margin-right(foo); /* Expect margin-right: foo; */
+}
+// Change direction
+$direction: rtl;
+.testbox {
+  @include margin-left(3px); /* Expect margin-right: 3px; */
+  @include margin-right(7px); /* Expect margin-left: 7px; */
+  @include margin-right(auto); /* Expect margin-left: auto; */
+  @include margin-right(foo); /* Expect margin-left: foo; */
+}
+
+// -----------------------------------------------------------------------------
+
+// To be used in place of padding-left: $length;
+@mixin padding-left($length) {
+  $dir: if(disc-default-float() == left, left, right);
+  @include padding-direction-length($dir, $length);
+}
+
+// To be used in place of padding-right: $length;
+@mixin padding-right($length) {
+  $dir: if(disc-default-float() == left, right, left);
+  @include padding-direction-length($dir, $length);
+}
+
+/* test @include padding-right();, @include padding-left(); */
+$direction: ltr;
+.testbox {
+  @include padding-left(3px); /* Expect padding-left: 3px; */
+  @include padding-right(12em); /* Expect padding-right: 12em; */
+  @include padding-left(foo); /* Expect padding-left: foo; */
+  @include padding-right(12px 19em); /* Just to see... Expect padding-right: 12px 19em;*/
+}
+// Change direction
+$direction: rtl;
+.testbox {
+  @include padding-left(3px); /* Expect padding-right: 3px; */
+  @include padding-right(12em); /* Expect padding-left: 12em; */
+  @include padding-left(foo); /* Expect padding-right: foo; */
+  @include padding-right(12px 19em); /* Just to see... Expect padding-left: 12px 19em;*/
+}
+
+// -----------------------------------------------------------------------------
+
+// To be used in place of margin: $lengths;
+@mixin margin($lengths) {
+  @include property-with-lengths(margin, $lengths);
+}
+
+// To be used in place of padding: $lengths;
+@mixin padding($lengths) {
+  @include property-with-lengths(padding, $lengths);
+}
+
+/* test @include margin() and @include padding(); */
+$direction: ltr;
+.test-box {
+  @include margin(1px); /* Expect margin: 1px; */
+  @include padding(2px); /* Expect padding: 2px; */
+  @include margin(2em 3px); /* Expect margin: 2em 3px */
+  @include padding(12px 9p); /* Expect padding(12px 9p); */
+  @include margin(1px 2px 12px); /* Expect margin: 1px 2px 12px; */
+  @include padding(2px 23px 3em); /* Expect padding: 2px 23px 3em; */
+  @include margin( 1px 2px 3px 4px); /* Expect margin: 1px 2px 3px 4px; */
+  @include margin(1px !important); /* Expect margin: 1px !important; */
+  @include margin(1px silly !important); /* Expect margin: 1px silly !important; */
+  @include padding(1px 2px 3px 100px !important); /* Expect margin: 1px 2px 3px 100px !important */
+  @include padding(1px 2px 3px 100px !important !important); /* Expect warning */
+}
+// Change direction
+$direction: rtl;
+.test-box {
+  @include margin(1px); /* Expect margin: 1px; */
+  @include padding(2px); /* Expect padding: 2px; */
+  @include margin(2em 3px); /* Expect margin: 2em 3px */
+  @include padding(12px 9p); /* Expect padding(12px 9p); */
+  @include margin(1px 2px 12px); /* Expect margin: 1px 2px 12px; */
+  @include padding(2px 23px 3em); /* Expect padding: 2px 23px 3em; */
+  @include margin( 1px 2px 3px 4px); /* Expect margin: 1px 4px 3px 2px; */
+  @include margin(1px !important); /* Expect margin: 1px !important; */
+  @include margin(1px silly !important); /* Expect margin: 1px silly !important; */
+  @include padding(1px 2px 3px 100px !important); /* Expect margin: 1px 100px 3px 2px !important */
+  @include padding(1px 2px 3px 100px !important !important); /* Expect warning */
+}
