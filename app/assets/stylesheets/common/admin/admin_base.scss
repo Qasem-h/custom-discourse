@@ -1,4 +1,9 @@
 // these are the styles associated with the Discourse admin section
+// Set ltr values for multi_directional
+$direction: ltr;
+$default-float: left;
+$opposite-float: right;
+
 @import "common/foundation/multi_directional";
 @import "common/foundation/variables";
 @import "common/foundation/mixins";

@@ -1,8 +1,8 @@
 @import "vendor/normalize";
 
-$direction: ltr;
-$default-float: left;
-$opposite-float: right;
+$direction: rtl;
+$default-float: right;
+$opposite-float: left;
 
 @import "common/foundation/multi_directional";
 
@@ -16,4 +16,3 @@ $opposite-float: right;
 @import "common/input_tip";
 @import "common/topic-entrance";
 @import "common/base/*";
-
