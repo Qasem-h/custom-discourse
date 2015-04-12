@@ -65,8 +65,8 @@
         text-decoration: none;
         cursor: pointer;
         border-top: 1px solid transparent;
-        border-left: 1px solid transparent;
-        border-right: 1px solid transparent;
+        @include border-left(1px solid transparent);
+        @include border-right(1px solid transparent);
         transition: all linear .15s;
 
 
@@ -74,8 +74,8 @@
           color: $primary;
           background-color:  scale-color-diff();
           border-top: 1px solid transparent;
-          border-left: 1px solid transparent;
-          border-right: 1px solid transparent;
+          @include border-left(1px solid transparent);
+          @include border-right(1px solid transparent);
         }
         &:active {
           color: $primary;
@@ -88,8 +88,8 @@
         background-color: $secondary;
         cursor: default;
         border-top: 1px solid scale-color-diff();
-        border-left: 1px solid scale-color-diff();
-        border-right: 1px solid scale-color-diff();
+        @include border-left(1px solid scale-color-diff());
+        @include border-right(1px solid scale-color-diff());
         &:after {
           display: block;
           position: absolute;

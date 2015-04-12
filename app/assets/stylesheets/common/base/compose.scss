@@ -65,7 +65,7 @@ div.ac-wrap {
       @include margin-left(4px);
       font-size: 11px;
       line-height: 10px;
-      padding: 1.5px 1.5px 1.5px 2.5px;
+      @include padding(1.5px 1.5px 1.5px 2.5px);
       border-radius: 12px;
       width: 10px;
       display: inline-block;

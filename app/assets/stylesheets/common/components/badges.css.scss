@@ -161,7 +161,7 @@
     }
 
     li.bar>.badge-category:not(.home):first-child {
-      border-left: 5px solid;
+      @include border-left(5px solid);
     }
 
     li.bar>.badge-category {

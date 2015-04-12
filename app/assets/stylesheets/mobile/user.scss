@@ -192,7 +192,7 @@
     margin-top: 20px;
 
     .btn.right {
-      float: right
+      @include float(right);
     }
 
     h2 {

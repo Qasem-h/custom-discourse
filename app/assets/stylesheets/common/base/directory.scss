@@ -20,7 +20,7 @@
     margin-bottom: 1em;
 
     td, th {
-      padding: 0.5em;
+      @include padding(0.5em);
       @include text-align(left);
       border-bottom: 1px solid scale-color-diff();
 
@@ -47,10 +47,10 @@
       width: 13%;
       i.fa-heart {
         color: $love;
-        margin-right: 0.5em;
+        @include margin-right(0.5em);
       }
       i.fa-chevron-down, i.fa-chevron-up {
-        margin-left: 0.5em;
+        @include margin-left(0.5em);
       }
 
       &:hover {

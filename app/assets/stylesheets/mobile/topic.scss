@@ -19,7 +19,7 @@
   h1 {
     font-size: 1.5em;
     line-height: 1.25em;
-    margin:0;
+    @include margin(0);
     a {
       color: $primary;
       vertical-align: middle;
@@ -139,7 +139,7 @@
     top: 0;
     bottom: 0;
     width: 0;
-    border-right: 1px solid scale-color($success, $lightness: 50%);
+    @include border-right(1px solid scale-color($success, $lightness: 50%));
     background-color: scale-color($success, $lightness: 50%);
   }
 }

@@ -41,7 +41,7 @@ button {
     position: relative;
   }
   &.expand-post {
-    margin:10px 0 10px 0;
+    @include margin(10px 0 10px 0);
   }
   &.has-like {color: $love;}
   .read-icon {
@@ -222,7 +222,7 @@ a.star {
       @include float(left);
       @include padding(7px 8px);
       &:last-of-type {
-        border-right: 0;
+        @include border-right(0);
       }
     }
     a, .number {
@@ -261,7 +261,7 @@ a.star {
 
   td {
     vertical-align: top;
-    padding:1px;
+    @include padding(1px);
   }
 
   .buttons {
@@ -269,7 +269,7 @@ a.star {
     .btn {
       border: 0;
       border-bottom: 1px solid scale-color-diff();
-      border-left: 1px solid scale-color-diff();
+      @include border-left(1px solid scale-color-diff());
       @include padding(0 15px);
       color: $primary;
       background: scale-color-diff();
@@ -429,7 +429,7 @@ button.select-post {
 #show-topic-admin {
   color: scale-color($primary, $lightness: 50%);
   @include right(0);
-  border-right: 0;
+  @include border-right(0);
   @include padding-right(4px);
   @include padding-left(5px);
 }

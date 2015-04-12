@@ -392,13 +392,13 @@ button {
 
     &:after,
     .mfp-a {
-      border-right: 17px solid #FFF;
+      @include border-right(17px solid #FFF);
       @include margin-left(31px);
     }
     &:before,
     .mfp-b {
       @include margin-left(25px);
-      border-right: 27px solid #3f3f3f;
+      @include border-right(27px solid #3f3f3f);
     }
   }
 
@@ -406,12 +406,12 @@ button {
     @include right(0);
     &:after,
     .mfp-a {
-      border-left: 17px solid #FFF;
-      margin-left: 39px
+      @include border-left(17px solid #FFF);
+      @include margin-left(39px);
     }
     &:before,
     .mfp-b {
-      border-left: 27px solid #3f3f3f;
+      @include border-left(27px solid #3f3f3f);
     }
   }
 }

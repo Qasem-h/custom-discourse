@@ -70,7 +70,7 @@ a.reply-new {
   i {
     @include margin-right(3px);
     background: $secondary;
-    padding: 1.5px 3px;
+    @include padding(1.5px 3px);
     border-radius: 20px;
     transition: all linear .15s;
     @include margin-left(-20px);
@@ -201,7 +201,7 @@ a:hover.reply-new {
     top: 0;
     bottom: 0;
     width: 0;
-    border-right: 1px solid  scale-color-diff();
+    @include border-right(1px solid  scale-color-diff());
     background-color:  desaturate(dark-light-diff($success, $secondary, 60%, -35%), 30%);
     transition: width .75s;
 
