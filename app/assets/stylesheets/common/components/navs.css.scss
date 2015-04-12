@@ -79,7 +79,9 @@
     content: " ";
     position: absolute;
     border-width: 8px;
-    border-left-color: $secondary;
+    // We want the colored border to be the same as the float direction
+    $border-dir: disc-default-float();
+    border-#{$border-dir}-color: $secondary;
   }
 
   .count {
