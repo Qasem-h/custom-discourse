@@ -11,7 +11,7 @@ $disc-direction: ltr;
 // Make sure $disc-direction is defined.
 @function disc-is-defined($value) {
   @if not global-variable-exists($value) {
-    @error "<$#{$value}> must be defined for this to work";
+    @warn "<$#{$value}> must be defined for this to work";
   }
   @return $value;
 }
