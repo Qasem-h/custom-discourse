@@ -1,5 +1,5 @@
 .error-page {
-  text-align: center;
+  @include text-align(center);
   padding-top: 2em;
 
   .face {
@@ -24,7 +24,7 @@
     margin-top: 15px;
 
     button {
-      margin: 0 20px;
+      @include margin(0 20px);
     }
   }
 }

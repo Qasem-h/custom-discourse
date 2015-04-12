@@ -2,14 +2,14 @@
   margin-bottom: 100px;
 
   .period-chooser {
-    float: left;
+    @include float(left);
   }
   .filter-name {
-    float: right;
+    @include float(right);
   }
   .total-rows {
     color: dark-light-diff($primary, $secondary, 50%, -50%);
-    text-align: right;
+    @include text-align(right);
   }
   .spinner {
     clear: both;
@@ -21,7 +21,7 @@
 
     td, th {
       padding: 0.5em;
-      text-align: left;
+      @include text-align(left);
       border-bottom: 1px solid scale-color-diff();
 
       .number, .time-read {
